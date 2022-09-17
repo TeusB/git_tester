@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <ul id="list">
+
+        </ul>
+    </body>
+</html>
+
+<script type="text/javascript">
+let jsonArray =
+'[{"title": "home", "url": "/"},{"title": "producten", "url": "/producten/"},{"title": "Overons", "url": "/overons/"}, {"title": "contact", "url": "/contact/"}]';
+
+
+const data = JSON.parse(jsonArray);
+const ul = document.getElementById("list");
+
+for (const eachObj in data){
+    let keys = Object.keys(data[eachObj]);
+    let title = (data[eachObj][keys[0]]);
+    let url = (data[eachObj][keys[1]]);
+
+    let a = document.createElement("a");
+    a.href = url;
+    let text = document.createTextNode(title);
+
+    let li = document.createElement("li");
+
+    a.appendChild(text);
+    li.appendChild(a);
+    ul.appendChild(li);
+}
+</script>
